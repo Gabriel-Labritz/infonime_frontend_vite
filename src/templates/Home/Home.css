@@ -1,0 +1,21 @@
+body {
+    background-color: #000000;
+}
+
+.category-section {
+    margin-bottom: 30px;
+}
+
+.category-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #8234E9;
+}
+
+.anime-cards-grid {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto; /* Permite rolagem horizontal para categorias com muitos animes */
+    padding-bottom: 10px;
+}

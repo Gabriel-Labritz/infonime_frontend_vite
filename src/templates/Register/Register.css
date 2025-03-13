@@ -1,0 +1,93 @@
+.main-container {
+    display: flex;
+
+    @media (min-width: 969px) {
+        overflow: hidden;
+        height: 100vh;
+    }
+}
+
+.background-area {
+    flex-basis: 75%;
+    
+    img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    @media (max-width: 968px) {
+        display: none;
+    }
+
+    @media (min-width:969px) and (max-width:1366px) {
+        flex-basis: 60%;
+    }
+}
+
+.form-container {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 40%;
+    flex: 1;
+    padding: 120px 40px;
+
+    img {
+        width: 182px;
+        margin-bottom: 30px;
+    }
+
+    .form-area {
+        width: 90%;
+        margin-top: 50px;
+    }
+
+    /* phone */
+    @media (max-width: 968px) {
+        .form-container {
+            width: 100%;
+        }
+    
+        h2 {
+            font-size: 20px;
+        }
+    
+        .form-area {
+            width: 100%;
+        }
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    .sign-up-box {
+        text-align: center;
+        background-color: #323238;
+        border: 1px solid #3a3a3b;
+        border-radius: 10px;
+        padding: 20px 15px;
+        margin-top: 60px;
+        transition: filter 250ms ease-in 0s;
+    }
+
+    .sign-up-box:hover {
+        filter: brightness(125%);
+    }
+
+    .box-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+
+        .span-area {
+            color: #8234E9;
+            font-weight: 600;
+        }
+    }
+}

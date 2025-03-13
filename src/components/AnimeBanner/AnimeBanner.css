@@ -1,0 +1,152 @@
+/* Desktop styles */
+.anime-banner-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+    top: 3.875rem;
+    overflow-x: hidden;
+    /* border: 1px solid red; */
+}
+
+.background-container {
+    /* border: 1px solid yellow; */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.horizontal-opacity {
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to top, #000000 10%, transparent 90%);
+}
+
+.vertical-opacity {
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to right, #000000 10%, transparent 90%);
+}
+
+.banner-content {
+    /* border: 1px solid green; */
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    position: absolute;
+    top: 50%;   
+    transform: translateY(-50%);
+    padding-left: 3.75rem;
+}
+
+.banner-content .anime-title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.banner-content .anime-synopsis {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+
+.banner-content .anime-seasons span{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: calc(1rem - 1px);
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: #a0a0a0;
+}
+
+.banner-content .anime-seasons span::before {
+    content: '';
+    display: inline-block;
+    height: 0.35rem;
+    width: 0.35rem;
+    background-color: #a0a0a0;
+    line-height: 1.5rem;
+    transform: rotate(45deg);
+}
+
+.banner-content , .anime-title , .anime-synopsis , .anime-seasons {
+    margin-bottom: 1.3rem;
+}
+
+.buttons-area {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.buttons-area .btn-anime-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 3rem;
+    font-size: 1rem;
+    color: #000000;
+    border-radius: 0;
+    text-transform: uppercase;
+}
+
+.buttons-area .btn-anime-addlist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    color: #8234E9;
+    border: 2px solid #8234E9;
+    border-radius: 0;
+    transition: all 275ms ease-in 0s;
+}
+
+.buttons-area .btn-anime-addlist:hover { 
+    color: #996DFF;
+    border: 2px solid #996DFF;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+
+    .vertical-opacity {
+        background: transparent
+    }
+
+    .horizontal-opacity {
+        background: linear-gradient(to top, #000000 20%, transparent 80%);
+    }
+
+    .banner-content {
+        /* border: 1px solid green; */
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        padding: 0 1.25rem;
+    }
+
+    .banner-content .anime-title {
+        font-size: 2.1rem;
+    }
+
+   .banner-content .anime-synopsis {
+        display: none;
+    } 
+
+    .buttons-area button{
+        margin-top: 0;
+    }
+
+    .buttons-area .btn-anime-details {
+        width: 20rem;
+    }
+
+    .banner-content , .anime-title , .anime-synopsis , .anime-seasons {
+        margin-bottom: 1.3rem;
+    }
+}

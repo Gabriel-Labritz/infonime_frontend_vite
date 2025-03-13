@@ -1,0 +1,99 @@
+/* Desktop Styles */
+.container-row {
+    /* border: 1px solid red; */
+    position: relative;
+    top: -80px;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 50px;
+    padding-left: 60px;
+}
+
+.row-header {
+    /* border: 1px solid green; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 1.8rem;
+}
+
+.title-row {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-rendering: optimizeLegibility;
+}
+
+.row-list-container {
+    position: relative;
+    transition: all 275ms ease-in-out 0s;
+}
+
+.row-list-container .row-left, .row-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    background-color: transparent;
+    color: #ffffff;
+    overflow: hidden;
+    transition: opacity 275ms ease-in;
+    z-index: 3;
+    opacity: 0;
+}
+
+.row-list-container .row-left {
+    left:0;
+}
+
+.row-list-container .row-right {
+    right: 0;
+}
+
+.row-list-container .row-left:hover,
+.row-list-container .row-right:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+.row-anime-list {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.row-anime-list::-webkit-scrollbar {
+    display: none;
+}
+
+.row-anime-list-item {
+    display: inline-block;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .container-row {
+        top: -135px;
+        padding-left: 20px;
+    }
+
+    .title-row {
+        font-size: 1.3rem;
+        margin-right: 10px;
+    }
+
+    .row-list-container .row-left, .row-right {
+        display: none;
+    }
+
+    .row-anime-list { 
+        gap: .2rem;
+    }
+
+}
