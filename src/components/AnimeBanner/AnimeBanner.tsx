@@ -4,6 +4,7 @@ import { AnimeData } from "../../utils-types/anime-data";
 import { truncate } from "../../utils/truncate";
 
 import "./AnimeBanner.css";
+import { Link } from "react-router-dom";
 
 interface AnimeBannerProps {
   data: AnimeData[];
@@ -45,8 +46,10 @@ function AnimeBanner({ data }: AnimeBannerProps) {
 
                 <div className="buttons-area">
                   <button className="btn-anime-details">
-                    <FiPlay size={22} />
-                    Ver detalhes
+                    <Link to={`/anime/${randomAnime._id}`}>
+                      <FiPlay size={22} />
+                      Ver detalhes
+                    </Link>
                   </button>
 
                   <button className="btn-anime-addlist">

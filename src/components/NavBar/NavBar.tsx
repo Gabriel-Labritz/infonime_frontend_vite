@@ -30,7 +30,11 @@ function NavBar() {
         className="menu-toggle"
         onClick={() => setMenuVisible(!menuVisible)}
       >
-        {menuVisible ? <IoMdClose size={35} /> : <IoMdMenu size={35} />}
+        {menuVisible ? (
+          <IoMdClose size={35} color="#a0a0a0" />
+        ) : (
+          <IoMdMenu size={35} color="#a0a0a0" />
+        )}
       </button>
 
       <div className={`nav-menu ${menuVisible ? "open" : ""}`}>

@@ -1,0 +1,21 @@
+.anime-category-container-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.313rem;
+    margin: 1rem 0;
+    color: #ffffff;
+}
+
+.anime-category-container-meta span{
+    font-weight: 600;
+    line-height: 1.5rem;
+    color: #ffffff;
+}
+
+.anime-category-container-meta small {
+    font-size: 0.938rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    color: #a0a0a0;
+}

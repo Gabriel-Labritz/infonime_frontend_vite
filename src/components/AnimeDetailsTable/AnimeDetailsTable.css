@@ -1,0 +1,30 @@
+.anime-details-row {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    align-items: center;
+    border-bottom: 1px solid #4a4e58;
+    padding: 0.75rem 0px;
+}
+
+.label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.detail-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #a0a0a0;
+}
+
+@media(max-width: 768px) {
+    .label {
+        font-size: 0.838rem;
+    }
+    
+    .detail-value {
+        font-size: 0.838rem;
+    }
+}

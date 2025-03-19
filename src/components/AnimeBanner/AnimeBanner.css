@@ -93,6 +93,12 @@
     text-transform: uppercase;
 }
 
+.buttons-area .btn-anime-details a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .buttons-area .btn-anime-addlist {
     display: flex;
     justify-content: center;

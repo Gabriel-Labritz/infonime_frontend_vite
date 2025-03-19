@@ -1,0 +1,34 @@
+.anime-background-area {
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.anime-background-img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: unset;
+    opacity: 0.5;
+    filter: blur(0.5374rem); 
+}
+
+.anime-backdrop-img {
+    position: absolute;
+    width: 520px;
+    height: 30%;
+    object-fit: cover;
+    object-position: unset;
+    z-index: 1;
+}
+
+@media (max-width: 780px) {
+    .anime-backdrop-img { 
+        width: 100%;
+    }
+}
