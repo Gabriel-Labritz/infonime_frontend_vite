@@ -14,11 +14,13 @@ import { FaStar } from "react-icons/fa";
 
 import "./Anime.css";
 import Comments from "../../components/Comments/Comments";
+import RatingModal from "../../components/RatingModal/RatingModal";
 
 function Anime() {
   const { id } = useParams();
-  const [isExpanded, setIsExpanded] = useState(false);
   const { anime } = useFetchAnimeById(id);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const BASE_URL = import.meta.env.VITE_baseUrlImg;
   const imageUrl = `${BASE_URL}${anime?.anime_backdrop}`;
@@ -39,11 +41,22 @@ function Anime() {
                 <h4>
                   <FaStar size={30} color="#FFD300" />{" "}
                   {anime?.rating?.toFixed(1) || "N/A"}
-                  <Link to="#">
-                    <span>avaliar</span>
-                  </Link>
+                  <span
+                    className="rate-anime"
+                    onClick={() => setIsModalOpen(true)}
+                  >
+                    avaliar
+                  </span>
                 </h4>
               </div>
+
+              {anime && (
+                <RatingModal
+                  animeId={anime?._id}
+                  isOpen={isModalOpen}
+                  onClose={() => setIsModalOpen(false)}
+                />
+              )}
 
               <div className="anime-seasons-infos">
                 {formatSeasonsEpisodes(
