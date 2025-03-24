@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useFetchAnimeById } from "../../hooks/useFetchAnimeById";
 import { formatSeasonsEpisodes } from "../../utils/format-seasons-episodes";
@@ -6,15 +6,15 @@ import { formatSeasonsEpisodes } from "../../utils/format-seasons-episodes";
 // Components
 import NavBar from "../../components/NavBar/NavBar";
 import { AnimeBackground } from "../../components/AnimeBackground/AnimeBackground";
+import AnimeRateModal from "../../components/AnimeRateModal/AnimeRateModal";
 import AnimeCategoriesMeta from "../../components/AnimeCategorieMeta/AnimeCategoriesMeta";
 import AnimeDetailsTable from "../../components/AnimeDetailsTable/AnimeDetailsTable";
+import Comments from "../../components/Comments/Comments";
 import { LuBookmarkPlus } from "react-icons/lu";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
 
 import "./Anime.css";
-import Comments from "../../components/Comments/Comments";
-import RatingModal from "../../components/RatingModal/RatingModal";
 
 function Anime() {
   const { id } = useParams();
@@ -51,8 +51,8 @@ function Anime() {
               </div>
 
               {anime && (
-                <RatingModal
-                  animeId={anime?._id}
+                <AnimeRateModal
+                  animeId={anime._id}
                   isOpen={isModalOpen}
                   onClose={() => setIsModalOpen(false)}
                 />

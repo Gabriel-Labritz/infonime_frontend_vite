@@ -1,0 +1,110 @@
+/* Desktop Styles */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-container-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 400px;
+    padding: 1.25rem;
+    background-color: #1B1B1F;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.ratings-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin-bottom: 0.938rem;
+}
+
+.ratings-options .btn-ratings-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0;
+    color: #000000;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.ratings-options .btn-ratings-options:hover {
+    background-color: #996DFF;
+    border: none;
+}
+
+.ratings-options .btn-ratings-options.selected {
+    background-color: transparent;
+    color: #8234E9;
+    border: 2px solid #8234E9;
+    transform: scale(1.1);
+}
+
+.modal-buttons {
+    /* border: 1px solid purple; */
+    display: flex;
+    gap: 0.625rem;
+}
+
+.modal-buttons button{
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 0;
+    border: none;
+}
+
+.modal-buttons button:first-child {
+    background-color: #444444;
+}
+
+.modal-buttons button:first-child:hover {
+    background-color: #666666;
+}
+
+.modal-buttons button:last-child:disabled {
+    background-color: #666666 !important; 
+    color: #aaaaaa !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+}
+
+.success-message {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: #3bc42b;
+}
+
+.error-message {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    color: #b40101;
+}
