@@ -1,3 +1,4 @@
+import { useAnimeList } from "../../hooks/useAnimeList";
 import { Link } from "react-router-dom";
 import { AnimeData } from "../../utils-types/anime-data";
 import { LuBookmarkPlus } from "react-icons/lu";
@@ -5,14 +6,27 @@ import { FiPlay } from "react-icons/fi";
 import { truncate } from "../../utils/truncate";
 
 import "./AnimeCard.css";
+import { IoBookmark } from "react-icons/io5";
 
 interface AnimeCardProps {
   animeData: AnimeData;
 }
 
 export default function AnimeCard({ animeData }: AnimeCardProps) {
+  const { addToList, removeFromList, isAnimeAlreadyInList } = useAnimeList();
+
   const BASE_URL = import.meta.env.VITE_baseUrlImg;
   const imageUrl = `${BASE_URL}${animeData.anime_poster}`;
+
+  const isInList: boolean = animeData
+    ? isAnimeAlreadyInList(animeData._id)
+    : false;
+
+  const handleListActions = () => {
+    if (!animeData) return;
+
+    isInList ? removeFromList(animeData._id) : addToList(animeData._id);
+  };
 
   return (
     <div className="animecard-container">
@@ -69,7 +83,7 @@ export default function AnimeCard({ animeData }: AnimeCardProps) {
           <div className="animecard-footer-hover">
             <div className="animecard-footer-icon-hover">
               <div>
-                <Link to="#">
+                <Link to={`/anime/${animeData._id}`}>
                   <button title="Ver detalhes">
                     <FiPlay size={25} />
                   </button>
@@ -80,8 +94,15 @@ export default function AnimeCard({ animeData }: AnimeCardProps) {
             <div className="animecard-footer-icon-hover">
               <div>
                 <Link to="#">
-                  <button title="Adicionar a lista">
-                    <LuBookmarkPlus size={25} />
+                  <button
+                    title={isInList ? "Remover da lista" : "Adicionar a lista"}
+                    onClick={handleListActions}
+                  >
+                    {isInList ? (
+                      <IoBookmark size={25} />
+                    ) : (
+                      <LuBookmarkPlus size={25} />
+                    )}
                   </button>
                 </Link>
               </div>

@@ -12,19 +12,28 @@ import AnimeDetailsTable from "../../components/AnimeDetailsTable/AnimeDetailsTa
 import Comments from "../../components/Comments/Comments";
 import { LuBookmarkPlus } from "react-icons/lu";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaTrash } from "react-icons/fa";
+import { useAnimeList } from "../../hooks/useAnimeList";
 
 import "./Anime.css";
 
 function Anime() {
   const { id } = useParams();
   const { anime } = useFetchAnimeById(id);
+  const { addToList, removeFromList, isAnimeAlreadyInList } = useAnimeList();
   const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const BASE_URL = import.meta.env.VITE_baseUrlImg;
   const imageUrl = `${BASE_URL}${anime?.anime_backdrop}`;
   const imageUrlPoster = `${BASE_URL}${anime?.anime_poster}`;
+
+  const isInList: boolean = id ? isAnimeAlreadyInList(id) : false;
+
+  const handleListAction = () => {
+    if (!anime) return;
+    isInList ? removeFromList(anime._id) : addToList(anime._id);
+  };
 
   return (
     <>
@@ -66,9 +75,13 @@ function Anime() {
               </div>
 
               {anime && (
-                <button className="button-add-list">
-                  <LuBookmarkPlus size={25} />
-                  Adicionar a lista
+                <button className="button-add-list" onClick={handleListAction}>
+                  {isInList ? (
+                    <FaTrash size={20} />
+                  ) : (
+                    <LuBookmarkPlus size={25} />
+                  )}
+                  {isInList ? "Remover da lista" : "Adicionar a lista"}
                 </button>
               )}
 
@@ -111,7 +124,9 @@ function Anime() {
             </div>
           </div>
 
-          {anime && <Comments animeId={anime?._id} animeTitle={anime?.title} />}
+          {isModalOpen && anime && (
+            <Comments animeId={anime?._id} animeTitle={anime?.title} />
+          )}
         </div>
       </div>
     </>
