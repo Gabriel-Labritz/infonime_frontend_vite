@@ -2,9 +2,9 @@ import { FiPlay } from "react-icons/fi";
 import { LuBookmarkPlus } from "react-icons/lu";
 import { AnimeData } from "../../utils-types/anime-data";
 import { truncate } from "../../utils/truncate";
+import { Link } from "react-router-dom";
 
 import "./AnimeBanner.css";
-import { Link } from "react-router-dom";
 
 interface AnimeBannerProps {
   data: AnimeData[];
@@ -34,7 +34,7 @@ function AnimeBanner({ data }: AnimeBannerProps) {
                 <h1 className="anime-title">{randomAnime.title}</h1>
                 <div className="anime-seasons">
                   <span>
-                    {parseInt(randomAnime.seasons) > 1
+                    {randomAnime.seasons > 1
                       ? `${randomAnime.seasons} temporadas`
                       : `${randomAnime.seasons} temporada`}{" "}
                   </span>

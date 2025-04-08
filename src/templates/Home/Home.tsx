@@ -6,12 +6,11 @@ import { categories } from "../../api/categories";
 import AnimeBanner from "../../components/AnimeBanner/AnimeBanner";
 import NavBar from "../../components/NavBar/NavBar";
 import AnimeRow from "../../components/AnimeRow/AnimeRow";
-import AnimeCard from "../../components/AnimeCard/AnimeCard";
 
 import "./Home.css";
 
 function Home() {
-  const { animes, error } = useFetchAnimes();
+  const { animes } = useFetchAnimes();
 
   return (
     <div>
@@ -22,13 +21,10 @@ function Home() {
 
         return (
           <AnimeRow
-            key={category.category}
+            key={category.displayName}
             categoryDisplayName={category.displayName}
             animes={animes}
           />
-          // {animes?.map((anime) => (
-          //   <AnimeCard key={anime._id} animeData={anime} />
-          // ))}
         );
       })}
     </div>

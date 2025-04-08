@@ -1,0 +1,130 @@
+/* hover card styles */
+.anime-card-hover {
+    display: none;
+    transition: opacity 0.2s ease-in;
+}
+
+.anime-card-content-hover {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    position: relative;
+    background-color: #151519;
+    border-color: 0 0 0 0.5rem #141519;
+    padding: 0.625rem;
+    cursor: pointer;
+}
+
+.anime-card-body-hover {
+    /* border: 1px solid red; */
+    flex: 1;
+}
+
+.anime-title-hover {
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    white-space: unset;
+}
+
+.anime-card-info-meta-container-hover {
+    color: #a0a0a0;
+    margin-bottom: 0.75rem;
+}
+
+.anime-card-info-meta-content-hover {
+    display: flex;
+    flex-direction: column;
+}
+
+.anime-card-info-meta-content-hover > span{
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.4rem;
+}
+
+.anime-card-synopsis-hover {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4rem;
+}
+
+/* card search styles */
+
+.anime-card-search-container {
+    /* border: 1px solid red; */
+    position: relative;
+    width: 359px;
+    padding: 0.6rem;
+}
+
+.anime-card-search-container:hover .anime-card-hover{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.anime-card-search-content {
+    /* border: 1px solid green; */
+    width: 100%;
+    height: 100%;
+}
+
+.anime-card-search-img {
+    /* border: 1px solid yellow; */
+    width: 100%;
+    height: 75%;
+}
+
+.anime-card-search-img > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.anime-card-body-content {
+    /* border: 1px solid purple; */
+    margin-top: 0.625rem;
+}
+
+.anime-card-title-body {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 0.625rem;
+}
+
+.anime-card-seasons-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #a0a0a0;
+}
+
+.anime-card-seasons-meta::before {
+    content: "";
+    width: 0.35rem;
+    height: 0.35rem;
+    background-color: #a0a0a0;
+    line-height: 1;
+    transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+    .anime-card-search-container {
+        width: 339px;
+    }
+
+    .anime-card-synopsis-hover {
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+    }
+}

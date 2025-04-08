@@ -1,32 +1,17 @@
-import { useAnimeList } from "../../hooks/useAnimeList";
 import { Link } from "react-router-dom";
 import { AnimeData } from "../../utils-types/anime-data";
-import { LuBookmarkPlus } from "react-icons/lu";
 import { FiPlay } from "react-icons/fi";
 import { truncate } from "../../utils/truncate";
 
 import "./AnimeCard.css";
-import { IoBookmark } from "react-icons/io5";
 
 interface AnimeCardProps {
   animeData: AnimeData;
 }
 
 export default function AnimeCard({ animeData }: AnimeCardProps) {
-  const { addToList, removeFromList, isAnimeAlreadyInList } = useAnimeList();
-
-  const BASE_URL = import.meta.env.VITE_baseUrlImg;
+  const BASE_URL: string = import.meta.env.VITE_baseUrlImg;
   const imageUrl = `${BASE_URL}${animeData.anime_poster}`;
-
-  const isInList: boolean = animeData
-    ? isAnimeAlreadyInList(animeData._id)
-    : false;
-
-  const handleListActions = () => {
-    if (!animeData) return;
-
-    isInList ? removeFromList(animeData._id) : addToList(animeData._id);
-  };
 
   return (
     <div className="animecard-container">
@@ -37,7 +22,7 @@ export default function AnimeCard({ animeData }: AnimeCardProps) {
         <div className="animecard-body-card">
           <h4 className="animecard-anime-title">{animeData.title}</h4>
           <span className="animecard-anime-seasons">
-            {parseInt(animeData.seasons) > 1
+            {animeData.seasons > 1
               ? `${animeData.seasons} temporadas`
               : `${animeData.seasons} temporada`}
           </span>
@@ -63,12 +48,12 @@ export default function AnimeCard({ animeData }: AnimeCardProps) {
               <div className="animecard-meta-infos-hover">
                 <div className="animecard-meta-hover">
                   <span>
-                    {parseInt(animeData.seasons) > 1
+                    {animeData.seasons > 1
                       ? `${animeData.seasons} temporadas`
                       : `${animeData.seasons} temporada`}
                   </span>
                   <span>
-                    {parseInt(animeData.episodes) > 1
+                    {animeData.episodes > 1
                       ? `${animeData.episodes} episódios`
                       : `${animeData.episodes} spisódio`}
                   </span>
@@ -86,23 +71,6 @@ export default function AnimeCard({ animeData }: AnimeCardProps) {
                 <Link to={`/anime/${animeData._id}`}>
                   <button title="Ver detalhes">
                     <FiPlay size={25} />
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="animecard-footer-icon-hover">
-              <div>
-                <Link to="#">
-                  <button
-                    title={isInList ? "Remover da lista" : "Adicionar a lista"}
-                    onClick={handleListActions}
-                  >
-                    {isInList ? (
-                      <IoBookmark size={25} />
-                    ) : (
-                      <LuBookmarkPlus size={25} />
-                    )}
                   </button>
                 </Link>
               </div>

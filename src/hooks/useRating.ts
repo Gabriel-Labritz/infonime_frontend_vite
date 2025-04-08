@@ -15,17 +15,10 @@ export function useRating() {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  async function rateAnime(
-    animeId: string,
-    rating: number
-  ): Promise<number | undefined> {
+  async function rateAnime(animeId: string, rating: number): Promise<void> {
     try {
       const token = localStorage.getItem("token");
-
-      if (!token) {
-        setError("Usuário não autenticado!");
-        return;
-      }
+      if (!token) return;
 
       const response = await api.post<RateAnimeResponse>(
         `/users/rate/${animeId}`,
@@ -38,12 +31,13 @@ export function useRating() {
       );
 
       setSuccessMessage(response.data.message);
-      return response.data.anime.rating;
-    } catch (error: any) {
-      const errorMsg =
-        error.response?.data?.message || "Erro ao avaliar esse anime !";
-      setError(errorMsg);
-      return;
+    } catch (error) {
+      setError(
+        (error as any).response?.data?.message ||
+          (error instanceof Error
+            ? error.message
+            : "Ocorreu um erro tente novamente mais tarde.")
+      );
     }
   }
 

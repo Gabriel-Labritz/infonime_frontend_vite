@@ -38,12 +38,12 @@ function NavBar() {
       </button>
 
       <div className={`nav-menu ${menuVisible ? "open" : ""}`}>
-        <Link to="#">
+        <Link to="/mylist">
           <span>
             <IoBookmarkOutline size={20} /> Minha Lista
           </span>
         </Link>
-        <Link to="#">
+        <Link to="/search">
           <span>
             <IoIosSearch size={24} />
             Buscar
