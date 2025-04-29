@@ -15,3 +15,8 @@ Aplicação web desenvolvida com React consumindo o meu próprio backend, permit
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [ReactRouterDOM](https://reactrouter.com/)
+- [Axios](https://axios-http.com/)
+- [React Toastify](https://fkhadra.github.io/react-toastify/)
+- [ContextAPI](https://reactjs.org/docs/context.html)
+- [Vite](https://vitejs.dev/)
+- [CSSModules]
