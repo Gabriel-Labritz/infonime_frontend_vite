@@ -19,4 +19,4 @@ Aplicação web desenvolvida com React consumindo o meu próprio backend, permit
 - [React Toastify](https://fkhadra.github.io/react-toastify/)
 - [ContextAPI](https://reactjs.org/docs/context.html)
 - [Vite](https://vitejs.dev/)
-- [CSSModules]
+- [CSSModules]()
