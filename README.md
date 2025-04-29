@@ -1,50 +1,43 @@
-# React + TypeScript + Vite
+# InfoNime 🎬 #
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web desenvolvida com React consumindo o meu próprio backend, permitindo aos usuários explorarem animes, visualizarem informações detalhadas, adicionarem/removerem títulos à sua lista de animes pessoal e interagirem com comentários e avaliações.
 
-Currently, two official plugins are available:
+## Funcionalidades da aplicação ⚙
+- 🔍 **Busca por animes**
+- 📂 **Visualização de animes por categoria**
+- ⭐ **Avaliação e comentários**
+- 📌 **Adicionar/remover animes da lista pessoal**
+- 🔒 **Sistema de autenticação (login/registro)**
+- ⚙️ **Perfil de usuário editável**
+- 🎨 **Interface responsiva e moderna** 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias 🛠
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [ReactRouterDOM](https://reactrouter.com/)
+- [Axios](https://axios-http.com/)
+- [React Toastify](https://fkhadra.github.io/react-toastify/)
+- [ContextAPI](https://reactjs.org/docs/context.html)
+- [Vite](https://vitejs.dev/)
+- [CSSModules]()
+- Backend: **Node.js + Express + JWT + MongoDB (Mongoose) + Multer**
 
-## Expanding the ESLint configuration
+## Como rodar o projeto localmente ✔
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```bash
+## Clone o repositório
+git clone https://github.com/Gabriel-Labritz/infonime_frontend_vite.git
 
-- Configure the top-level `parserOptions` property like this:
+## Acesse a pasta
+cd infonime_frontend_vite
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Instale as dependências
+npm install
+
+# Rode o projeto
+npm run dev
+
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Variáveis de ambiente
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
