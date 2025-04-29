@@ -28,4 +28,11 @@ Aplicação web desenvolvida com React consumindo o meu próprio backend, permit
 ## Clone o repositório
 git clone https://github.com/Gabriel-Labritz/infonime_frontend_vite.git
 
+## Acesse a pasta
+cd infonime_frontend_vite
 
+# Instale as dependências
+npm install
+
+# Rode o projeto
+npm run dev
