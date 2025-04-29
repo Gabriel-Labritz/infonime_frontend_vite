@@ -7,7 +7,7 @@ Aplicação web desenvolvida com React consumindo o meu próprio backend, permit
 - 📂 **Visualização de animes por categoria**
 - ⭐ **Avaliação e comentários**
 - 📌 **Adicionar/remover animes da lista pessoal**
-- 👤 **Sistema de autenticação (login/registro)**
+- 🔒 **Sistema de autenticação (login/registro)**
 - ⚙️ **Perfil de usuário editável**
 - 🎨 **Interface responsiva e moderna** 
 
@@ -21,4 +21,11 @@ Aplicação web desenvolvida com React consumindo o meu próprio backend, permit
 - [Vite](https://vitejs.dev/)
 - [CSSModules]()
 - Backend: **Node.js + Express + JWT + MongoDB (Mongoose) + Multer**
+
+## Como rodar o projeto localmente ✔
+
+```bash
+## Clone o repositório
+git clone https://github.com/Gabriel-Labritz/infonime_frontend_vite.git
+
 
