@@ -12,3 +12,4 @@ Aplicação web desenvolvida com React consumindo o meu próprio backend, permit
 - 🎨 **Interface responsiva e moderna** 
 
 ## Tecnologias 🛠
+- [React]()
