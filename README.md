@@ -12,4 +12,6 @@ Aplicação web desenvolvida com React consumindo o meu próprio backend, permit
 - 🎨 **Interface responsiva e moderna** 
 
 ## Tecnologias 🛠
-- [React]()
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [ReactRouterDOM](https://reactrouter.com/)
