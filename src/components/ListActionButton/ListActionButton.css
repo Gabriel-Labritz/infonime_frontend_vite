@@ -1,0 +1,19 @@
+.button-add-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    width: 40%;
+    height: 3rem;
+    font-size: 1rem;
+    color: #000000;
+    border-radius: 0;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .button-add-list {
+        width: 100%;
+    }
+}

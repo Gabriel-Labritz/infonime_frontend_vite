@@ -1,0 +1,37 @@
+.error-message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 15, 15);
+    color: #ffffff;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.error-message-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.error-message-container h2 {
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.error-message-container p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+}

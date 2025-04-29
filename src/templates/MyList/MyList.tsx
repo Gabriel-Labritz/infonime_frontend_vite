@@ -5,31 +5,24 @@ import { useAnimeListContext } from "../../hooks/useAnimeListContext";
 import { LuBookmarkPlus } from "react-icons/lu";
 import NavBar from "../../components/NavBar/NavBar";
 import AnimeCardList from "../../components/AnimeCardList/AnimeCardList";
+import Loading from "../../components/Loading/Loading";
+import { HiOutlineEmojiSad } from "react-icons/hi";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 import "./MyList.css";
-import { HiOutlineEmojiSad } from "react-icons/hi";
 
 function MyList() {
-  const { animeList, fetchAnimeList, successMessage, error, clearMessages } =
-    useAnimeListContext();
+  const { animeList, fetchAnimeList, error, isLoading } = useAnimeListContext();
 
   useEffect(() => {
     fetchAnimeList();
   }, []);
 
-  useEffect(() => {
-    if (successMessage || error) {
-      const timeOut = setTimeout(() => {
-        clearMessages();
-      }, 3000);
-
-      return () => clearTimeout(timeOut);
-    }
-  }, [successMessage, error]);
-
   return (
     <>
       <NavBar />
+      {isLoading && <Loading />}
+      {error && <ErrorMessage message={error} />}
 
       <div className="container-page">
         <div className="header-content">
@@ -38,9 +31,6 @@ function MyList() {
             <h2 className="title-header">Sua lista !</h2>
           </div>
         </div>
-
-        {successMessage && <p className="success-messages">{successMessage}</p>}
-        {error && <p className="error">{error}</p>}
 
         {animeList.length > 0 ? (
           <div className="list-area">

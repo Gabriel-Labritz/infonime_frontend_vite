@@ -1,42 +1,44 @@
-import { FiPlay } from "react-icons/fi";
-import { LuBookmarkPlus } from "react-icons/lu";
 import { AnimeData } from "../../utils-types/anime-data";
 import { truncate } from "../../utils/truncate";
 import { Link } from "react-router-dom";
+import { GoPlus } from "react-icons/go";
 
 import "./AnimeBanner.css";
 
 interface AnimeBannerProps {
-  data: AnimeData[];
+  animes: AnimeData[];
 }
 
-function AnimeBanner({ data }: AnimeBannerProps) {
+function AnimeBanner({ animes }: AnimeBannerProps) {
   const randomAnime =
-    data.length > 0 ? data[Math.floor(Math.random() * data.length)] : null;
+    animes.length > 0
+      ? animes[Math.floor(Math.random() * animes.length)]
+      : null;
 
   const BASE_URL = import.meta.env.VITE_baseUrlImg;
-  const imageUrl = randomAnime
+  const backdropUrl = randomAnime
     ? `${BASE_URL}${randomAnime.anime_backdrop}`
     : "";
 
   return (
     <div className="anime-banner-container">
-      {randomAnime ? (
+      {randomAnime && (
         <div
           className="background-container"
           style={{
-            backgroundImage: `url(${imageUrl})`,
+            backgroundImage: `url(${backdropUrl})`,
           }}
         >
           <div className="horizontal-opacity">
             <div className="vertical-opacity">
               <div className="banner-content">
                 <h1 className="anime-title">{randomAnime.title}</h1>
+
                 <div className="anime-seasons">
                   <span>
                     {randomAnime.seasons > 1
                       ? `${randomAnime.seasons} temporadas`
-                      : `${randomAnime.seasons} temporada`}{" "}
+                      : `${randomAnime.seasons} temporada`}
                   </span>
                 </div>
 
@@ -44,24 +46,16 @@ function AnimeBanner({ data }: AnimeBannerProps) {
                   {truncate(randomAnime.synopsis, 400)}
                 </p>
 
-                <div className="buttons-area">
-                  <button className="btn-anime-details">
-                    <Link to={`/anime/${randomAnime._id}`}>
-                      <FiPlay size={22} />
-                      Ver detalhes
-                    </Link>
-                  </button>
-
-                  <button className="btn-anime-addlist">
-                    <LuBookmarkPlus size={22} />
-                  </button>
-                </div>
+                <button className="btn-anime-details">
+                  <Link to={`/anime/${randomAnime._id}`}>
+                    <GoPlus size={30} />
+                    Ver detalhes
+                  </Link>
+                </button>
               </div>
             </div>
           </div>
         </div>
-      ) : (
-        <p>Carregando...</p>
       )}
     </div>
   );

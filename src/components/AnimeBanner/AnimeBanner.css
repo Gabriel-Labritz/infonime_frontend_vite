@@ -6,11 +6,9 @@
     position: relative;
     top: 3.875rem;
     overflow-x: hidden;
-    /* border: 1px solid red; */
 }
 
 .background-container {
-    /* border: 1px solid yellow; */
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -30,7 +28,6 @@
 }
 
 .banner-content {
-    /* border: 1px solid green; */
     display: flex;
     flex-direction: column;
     width: 40%;
@@ -43,7 +40,7 @@
 .banner-content .anime-title {
     font-size: 3rem;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .banner-content .anime-synopsis {
@@ -56,7 +53,7 @@
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: calc(1rem - 1px);
+    font-size: 1rem;
     font-weight: 500;
     line-height: 1.5rem;
     color: #a0a0a0;
@@ -76,16 +73,11 @@
     margin-bottom: 1.3rem;
 }
 
-.buttons-area {
-    display: flex;
-    gap: 0.8rem;
-}
-
-.buttons-area .btn-anime-details {
+.btn-anime-details {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 50%;
     height: 3rem;
     font-size: 1rem;
     color: #000000;
@@ -93,33 +85,16 @@
     text-transform: uppercase;
 }
 
-.buttons-area .btn-anime-details a{
+.btn-anime-details a{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.buttons-area .btn-anime-addlist {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 3rem;
-    height: 3rem;
-    background-color: transparent;
-    color: #8234E9;
-    border: 2px solid #8234E9;
-    border-radius: 0;
-    transition: all 275ms ease-in 0s;
-}
-
-.buttons-area .btn-anime-addlist:hover { 
-    color: #996DFF;
-    border: 2px solid #996DFF;
+    color: inherit;
+    text-decoration: none;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-
     .vertical-opacity {
         background: transparent
     }
@@ -129,7 +104,6 @@
     }
 
     .banner-content {
-        /* border: 1px solid green; */
         align-items: center;
         width: 100%;
         text-align: center;
@@ -144,12 +118,9 @@
         display: none;
     } 
 
-    .buttons-area button{
+    .btn-anime-details{
+        width: 100%;
         margin-top: 0;
-    }
-
-    .buttons-area .btn-anime-details {
-        width: 20rem;
     }
 
     .banner-content , .anime-title , .anime-synopsis , .anime-seasons {

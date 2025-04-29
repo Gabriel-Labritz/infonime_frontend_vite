@@ -1,11 +1,11 @@
 button {
-    height: 60px;
+    height: 3.75rem;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 1.875rem;
     border: none;
     border-radius: 10px;
     background-color: #8234E9;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     transition: background-color 275ms ease-in 0s;
 }
@@ -13,4 +13,10 @@ button {
 button:hover {
     background-color: #996DFF;
     cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #8234E9;
 }

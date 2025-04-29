@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRating } from "../../hooks/useRating";
+import Loading from "../Loading/Loading";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 import "./AnimeRateModal.css";
 
@@ -14,7 +16,8 @@ export default function AnimeRateModal({
   isOpen,
   onClose,
 }: AnimeRateModalProps) {
-  const { rateAnime, successMessage, setSuccessMessage, error } = useRating();
+  const { rateAnime, successMessage, setSuccessMessage, isLoading, error } =
+    useRating();
   const [selectedRating, setSelectedRating] = useState<number | null>(null);
   const ratings = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -34,34 +37,43 @@ export default function AnimeRateModal({
     return () => clearTimeout(timeOut);
   };
 
-  if (!isOpen) return;
   return (
-    <div className="modal-container-overlay">
-      <div className="modal-content">
-        <div className="ratings-options">
-          {ratings.map((num) => (
-            <button
-              key={num}
-              className={`btn-ratings-options ${
-                selectedRating === num ? "selected" : ""
-              }`}
-              onClick={() => setSelectedRating(num)}
-            >
-              {num}
-            </button>
-          ))}
-        </div>
+    <>
+      {isLoading && <Loading />}
+      {error && <ErrorMessage message={error} />}
+      {isOpen && (
+        <div className="modal-container-overlay">
+          <div className="modal-content">
+            <div className="ratings-options">
+              {ratings.map((num) => (
+                <button
+                  key={num}
+                  className={`btn-ratings-options ${
+                    selectedRating === num ? "selected" : ""
+                  }`}
+                  onClick={() => setSelectedRating(num)}
+                >
+                  {num}
+                </button>
+              ))}
+            </div>
 
-        {successMessage && <p className="success-message">{successMessage}</p>}
-        {error && <p className="error-message">{error}</p>}
+            {successMessage && (
+              <p className="success-message">{successMessage}</p>
+            )}
 
-        <div className="modal-buttons">
-          <button onClick={() => onClose()}>Voltar</button>
-          <button onClick={handleRateSubmit} disabled={selectedRating === null}>
-            Avaliar
-          </button>
+            <div className="modal-buttons">
+              <button onClick={() => onClose()}>Voltar</button>
+              <button
+                onClick={handleRateSubmit}
+                disabled={selectedRating === null}
+              >
+                Avaliar
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

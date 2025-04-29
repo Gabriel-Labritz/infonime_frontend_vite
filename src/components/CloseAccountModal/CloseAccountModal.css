@@ -1,0 +1,61 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-account-modal-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.close-account-modal-content {
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+    background-color: #1B1B1F;
+    padding: 30px;
+}
+
+.close-account-modal-buttons {
+    display: flex;
+    gap: 0.625rem;
+}
+
+.close-account-modal-buttons button {
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 0;
+    border: none;
+}
+
+.close-account-modal-buttons button:first-child {
+    background-color: #444444;
+}
+
+.close-account-modal-buttons button:first-child:hover {
+    background-color: #666666;
+}
+
+.close-account-modal-buttons button:last-child {
+    background-color: #c90d0a;
+}
+
+.close-account-modal-buttons button:last-child:hover {
+    background-color: #e42c28;
+}

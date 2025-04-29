@@ -6,28 +6,29 @@ import { formatSeasonsEpisodes } from "../../utils/format-seasons-episodes";
 
 // Components
 import NavBar from "../../components/NavBar/NavBar";
-import { AnimeBackground } from "../../components/AnimeBackground/AnimeBackground";
+import AnimeBackground from "../../components/AnimeBackground/AnimeBackground";
 import AnimeRateModal from "../../components/AnimeRateModal/AnimeRateModal";
 import AnimeCategoriesMeta from "../../components/AnimeCategorieMeta/AnimeCategoriesMeta";
 import AnimeDetailsTable from "../../components/AnimeDetailsTable/AnimeDetailsTable";
 import Comments from "../../components/Comments/Comments";
-import { LuBookmarkPlus } from "react-icons/lu";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { FaStar, FaTrash } from "react-icons/fa";
+import Loading from "../../components/Loading/Loading";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import RatingInfo from "../../components/RatingInfo/RatingInfo";
+import ListActionButton from "../../components/ListActionButton/ListActionButton";
+import SynopsisSection from "../../components/SynopsisSection/SynopsisSection";
 
 import "./Anime.css";
-import PageNotFound from "../404/404";
 
 function Anime() {
   const { id } = useParams();
-  const { anime, error } = useFetchAnimeById(id);
+  const { anime, error, isLoading } = useFetchAnimeById(id);
   const { addToList, removeFromList, isAnimeAlreadyInList, fetchAnimeList } =
     useAnimeListContext();
   const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const BASE_URL = import.meta.env.VITE_baseUrlImg;
-  const imageUrl = `${BASE_URL}${anime?.anime_backdrop}`;
+  const imageUrlBackdrop = `${BASE_URL}${anime?.anime_backdrop}`;
   const imageUrlPoster = `${BASE_URL}${anime?.anime_poster}`;
 
   const isInList = anime ? isAnimeAlreadyInList(anime._id) : false;
@@ -45,114 +46,68 @@ function Anime() {
       await addToList(anime._id, anime);
     }
 
+    // ⚠️ Aguarde o setAnimeList atualizar antes de refazer a lista
     await fetchAnimeList();
   };
 
   return (
     <>
-      {error ? (
-        <PageNotFound error={error} />
-      ) : (
+      {isLoading && <Loading />}
+      {error && <ErrorMessage message={error} />}
+      {!isLoading && !error && anime && (
         <>
           <NavBar />
           <div className="anime-page-container">
             <AnimeBackground
-              animeTitle={anime?.title}
-              animeBackdrop={imageUrl}
+              animeTitle={anime.title}
+              animeBackdrop={imageUrlBackdrop}
             />
 
             <div className="anime-body-area">
               <div className="anime-content">
                 <div className="animes-infos-container">
-                  <h2 className="anime-title-info">{anime?.title}</h2>
+                  <h2 className="anime-title-info">{anime.title}</h2>
 
-                  <div className="rating-info">
-                    <h4>
-                      <FaStar size={30} color="#FFD300" />{" "}
-                      {anime?.rating?.toFixed(1) || "N/A"}
-                      <span
-                        className="rate-anime"
-                        onClick={() => setIsModalOpen(true)}
-                      >
-                        avaliar
-                      </span>
-                    </h4>
-                  </div>
+                  <RatingInfo
+                    rating={anime.rating}
+                    onOpenModal={() => setIsModalOpen(true)}
+                  />
 
-                  {anime && (
-                    <AnimeRateModal
-                      animeId={anime._id}
-                      isOpen={isModalOpen}
-                      onClose={() => setIsModalOpen(false)}
-                    />
-                  )}
+                  <AnimeRateModal
+                    animeId={anime._id}
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                  />
 
                   <div className="anime-seasons-infos">
-                    {formatSeasonsEpisodes(anime?.seasons, anime?.episodes)}
+                    {formatSeasonsEpisodes(anime.seasons, anime.episodes)}
                   </div>
 
-                  {isInList ? (
-                    <button
-                      className="button-add-list"
-                      onClick={handleListAction}
-                    >
-                      <FaTrash size={18} />
-                      Remover da lista
-                    </button>
-                  ) : (
-                    <button
-                      className="button-add-list"
-                      onClick={handleListAction}
-                    >
-                      <LuBookmarkPlus size={23} />
-                      Adicionar a lista
-                    </button>
+                  <ListActionButton
+                    isInList={isInList}
+                    onClick={handleListAction}
+                  />
+
+                  <SynopsisSection
+                    synopsis={anime.synopsis}
+                    isExpanded={isExpanded}
+                    onToggle={() => setIsExpanded(!isExpanded)}
+                  />
+
+                  {isExpanded && (
+                    <div className="anime-extra-details">
+                      <AnimeCategoriesMeta categories={anime.category} />
+                      <AnimeDetailsTable anime={anime} />
+                    </div>
                   )}
-
-                  <div
-                    className={`anime-synopsis-wrapper ${
-                      isExpanded ? "expanded" : ""
-                    }`}
-                  >
-                    <p className="anime-synopsis-info">
-                      {anime?.synopsis || "Sinopse Indisponível"}
-                    </p>
-                    {!isExpanded && <div className="fade-overlay"></div>}
-                  </div>
-
-                  <div className="see-more-details">
-                    <button
-                      className="button-show-more"
-                      onClick={() => setIsExpanded(!isExpanded)}
-                    >
-                      {isExpanded ? "Mostrar menos" : "Mostrar mais"}
-                      {isExpanded ? (
-                        <IoIosArrowUp size={20} />
-                      ) : (
-                        <IoIosArrowDown size={20} />
-                      )}
-                    </button>
-
-                    {isExpanded && anime && (
-                      <div className="anime-extra-details">
-                        <AnimeCategoriesMeta
-                          categories={anime?.category || []}
-                        />
-
-                        <AnimeDetailsTable animeData={anime} />
-                      </div>
-                    )}
-                  </div>
                 </div>
 
                 <div className="anime-poster-area">
-                  <img src={imageUrlPoster} alt={anime?.title} />
+                  <img src={imageUrlPoster} alt={anime.title} />
                 </div>
               </div>
 
-              {anime && (
-                <Comments animeId={anime?._id} animeTitle={anime?.title} />
-              )}
+              <Comments animeId={anime._id} animeTitle={anime.title} />
             </div>
           </div>
         </>

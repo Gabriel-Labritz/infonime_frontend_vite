@@ -68,14 +68,13 @@
 }
 
 .modal-buttons {
-    /* border: 1px solid purple; */
     display: flex;
     gap: 0.625rem;
 }
 
 .modal-buttons button{
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 600;
     border-radius: 0;
     border: none;
 }
@@ -100,11 +99,4 @@
     font-weight: 500;
     line-height: 1.5rem;
     color: #3bc42b;
-}
-
-.error-message {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.5rem;
-    color: #b40101;
 }

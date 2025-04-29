@@ -16,7 +16,7 @@ export default function AnimeCardList({ ...anime }: AnimeCardListProps) {
   const { removeFromList } = useAnimeListContext();
 
   const BASE_URL = import.meta.env.VITE_baseUrlImg;
-  const imageUrl = `${BASE_URL}${anime.anime_backdrop}`;
+  const imgBackdropUrl = `${BASE_URL}${anime.anime_backdrop}`;
 
   const handleRemoveFromList = async () => {
     await removeFromList(anime._id);
@@ -26,7 +26,7 @@ export default function AnimeCardList({ ...anime }: AnimeCardListProps) {
     <div className="anime-card-list-container">
       <div className="anime-card-list-content">
         <div className="anime-card-list-img-content">
-          <img src={imageUrl} alt={anime.title} />
+          <img src={imgBackdropUrl} alt={anime.title} />
         </div>
 
         <div className="anime-card-list-body">

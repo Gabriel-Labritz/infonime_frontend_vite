@@ -2,12 +2,12 @@
     display: flex;
     align-items: center;
     position: relative;
-    height: 60px;
+    height: 3.75rem;
     background-color: #131313;
     border: 2px solid #323238;
     border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 16px;
+    padding: 0.625rem;
+    margin-bottom: 1rem;
 }
 
 .input-container:focus-within {
@@ -18,18 +18,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 8px;
+    margin-right: 0.5rem;
     color: #6B6B6B;
 }
 
 .input-field {
     flex: 1;
-    height: 58px;
+    height: 3.625rem;
     border: none;
     outline: none;
     background-color: transparent;
-    font-size: 17px;
+    padding-right: 2.813rem;
+    font-size: 1.063rem;
     font-weight: 600;
+    color: #ffffff;
 }
 
 .input-field::placeholder {
@@ -37,12 +39,9 @@
 }
 
 .visible-password-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
-    right: 15px;
     top: 0;
+    right: 0.938rem;
     transform: translateY(-50%);
     width: 40px;
     height: 40px;

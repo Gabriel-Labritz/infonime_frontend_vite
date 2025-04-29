@@ -2,22 +2,20 @@ import { AnimeData } from "../../utils-types/anime-data";
 import "./AnimeDetailsTable.css";
 
 interface AnimeDetailsTableProps {
-  animeData: AnimeData;
+  anime: AnimeData;
 }
 
-export default function AnimeDetailsTable({
-  animeData,
-}: AnimeDetailsTableProps) {
+export default function AnimeDetailsTable({ anime }: AnimeDetailsTableProps) {
   const details = [
-    { label: "Áudio", value: animeData.audio || "Não informado" },
-    { label: "Distribuidora", value: animeData.distributor || "Não informado" },
+    { label: "Áudio", value: anime.audio || "Não informado" },
+    { label: "Distribuidora", value: anime.distributor || "Não informado" },
     {
       label: "Classificação de conteúdo",
-      value: animeData.content_classification || "Não informado",
+      value: anime.content_classification || "Não informado",
     },
     {
       label: "Ano de lançamento",
-      value: animeData.release_date || "Não informado",
+      value: anime.release_date || "Não informado",
     },
   ];
 

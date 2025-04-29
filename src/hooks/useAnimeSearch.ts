@@ -10,7 +10,9 @@ interface AnimesApiResponseData {
 export function useAnimeSearch() {
   const [searchParams] = useSearchParams();
   const [animes, setAnimes] = useState<AnimeData[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
   const query = searchParams.get("q");
 
   useEffect(() => {
@@ -20,16 +22,9 @@ export function useAnimeSearch() {
 
   async function fetchAnimeSearch(): Promise<void> {
     try {
-      const token = localStorage.getItem("token");
-      if (!token) return;
-
+      setIsLoading(true);
       const response = await api.get<AnimesApiResponseData>(
-        `/animes/search/${query}`,
-        {
-          headers: {
-            Authorization: `Bearer ${JSON.parse(token)}`,
-          },
-        }
+        `/animes/search/${query}`
       );
 
       setAnimes(response.data.animes);
@@ -41,8 +36,10 @@ export function useAnimeSearch() {
             ? error.message
             : "Ocorreu um erro, tente novamente mais tarde.")
       );
+    } finally {
+      setIsLoading(false);
     }
   }
 
-  return { animes, error, query };
+  return { animes, error, isLoading, query };
 }

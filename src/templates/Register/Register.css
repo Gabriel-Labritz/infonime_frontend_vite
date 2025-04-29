@@ -1,93 +1,92 @@
+/* Desktop Styles */
 .main-container {
     display: flex;
-
-    @media (min-width: 969px) {
-        overflow: hidden;
-        height: 100vh;
-    }
+    height: 100vh;
+    overflow: hidden;
 }
 
 .background-area {
     flex-basis: 75%;
-    
+
     img {
         width: 100%;
-        height: 100vh;
+        height: 100%;
         object-fit: cover;
-    }
-
-    @media (max-width: 968px) {
-        display: none;
-    }
-
-    @media (min-width:969px) and (max-width:1366px) {
-        flex-basis: 60%;
     }
 }
 
 .form-container {
     /* border: 1px solid red; */
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-basis: 40%;
-    flex: 1;
-    padding: 120px 40px;
+    flex-direction: column;
+    flex-basis: 25%;
+    background-color: #1B1B1F;
+}
 
-    img {
-        width: 182px;
-        margin-bottom: 30px;
+.form-container > img {
+    width: 182px;
+    margin-bottom: 1.25rem;
+}
+
+.form-area {
+    /* border: 1px solid red; */
+    width: 100%;
+    padding: 1.25rem 2.5rem;
+}
+
+.sign-in-container {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sign-in-container .sign-in-box {
+    text-align: center;
+    font-weight: 600;
+    background-color: #323238;
+    border: 1px solid #3a3a3b;
+    border-radius: 10px;
+    padding: 20px 15px;
+    margin-top: 2.5rem;
+    transition: filter 0.2s ease-in;
+}
+
+.sign-in-container .sign-in-box:hover {
+    filter: brightness(125%);
+}
+
+.sign-in-container .box-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.313rem;
+}
+
+.sign-in-container .box-info span{
+    color: #8234E9;
+    font-weight: 600;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .background-area {
+        display: none;
+    }
+
+    .form-container {
+        flex: 1;
+    }
+
+    .form-container > h2 {
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.8rem;
     }
 
     .form-area {
-        width: 90%;
-        margin-top: 50px;
-    }
-
-    /* phone */
-    @media (max-width: 968px) {
-        .form-container {
-            width: 100%;
-        }
-    
-        h2 {
-            font-size: 20px;
-        }
-    
-        .form-area {
-            width: 100%;
-        }
-    }
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-
-    .sign-up-box {
-        text-align: center;
-        background-color: #323238;
-        border: 1px solid #3a3a3b;
-        border-radius: 10px;
-        padding: 20px 15px;
-        margin-top: 60px;
-        transition: filter 250ms ease-in 0s;
-    }
-
-    .sign-up-box:hover {
-        filter: brightness(125%);
-    }
-
-    .box-info {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 5px;
-
-        .span-area {
-            color: #8234E9;
-            font-weight: 600;
-        }
+        width: 100%;
+        padding: 2.5rem 1.25rem;
     }
 }

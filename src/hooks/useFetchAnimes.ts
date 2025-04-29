@@ -8,18 +8,21 @@ interface AnimesResponseData {
 
 export function useFetchAnimes() {
   const [animes, setAnimes] = useState<AnimeData[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchAnimes();
+    loadAnimes();
   }, []);
 
-  async function fetchAnimes() {
+  async function loadAnimes(): Promise<void> {
     try {
+      setIsLoading(true);
       const response = await api.get<AnimesResponseData>("/animes/all");
 
       if (!response.data || !Array.isArray(response.data.animes)) {
-        throw new Error("Nenhum anime foi encontrado!");
+        setError("Nenhum anime foi encontrado!");
+        return;
       }
 
       setAnimes(response.data.animes);
@@ -29,10 +32,12 @@ export function useFetchAnimes() {
         (error as any).response?.data?.message ||
           (error instanceof Error
             ? error.message
-            : "Ocorreu um erro tente novamente mais tarde.")
+            : "Falha ao carregar animes. Tente recarregar a página.")
       );
+    } finally {
+      setIsLoading(false);
     }
   }
 
-  return { animes, error };
+  return { animes, error, isLoading };
 }

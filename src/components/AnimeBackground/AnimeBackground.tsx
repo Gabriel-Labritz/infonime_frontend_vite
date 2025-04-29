@@ -1,11 +1,11 @@
 import "./AnimeBackground.css";
 
 interface AnimeBackgroundProps {
-  animeTitle: string | undefined;
-  animeBackdrop: string | undefined;
+  animeTitle: string;
+  animeBackdrop: string;
 }
 
-export function AnimeBackground({
+export default function AnimeBackground({
   animeTitle,
   animeBackdrop,
 }: AnimeBackgroundProps) {

@@ -9,15 +9,20 @@ interface AnimeResponseData {
 export function useFetchAnimeById(id: string | undefined) {
   const [anime, setAnime] = useState<AnimeData | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     fetchAnimeById();
   }, [id]);
 
-  async function fetchAnimeById() {
-    if (!id) return;
+  async function fetchAnimeById(): Promise<void> {
+    if (!id) {
+      throw new Error("fetchAnimeById() Id (string) inválido.");
+    }
 
     try {
+      setIsLoading(true);
+
       const response = await api.get<AnimeResponseData>(`/animes/${id}`);
       setAnime(response.data.anime);
       setError(null);
@@ -28,8 +33,10 @@ export function useFetchAnimeById(id: string | undefined) {
             ? error.message
             : "Ocorreu um erro tente novamente mais tarde.")
       );
+    } finally {
+      setIsLoading(false);
     }
   }
 
-  return { anime, error };
+  return { anime, error, isLoading };
 }

@@ -1,14 +1,15 @@
-import { Navigate, Outlet} from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
+import { Navigate, Outlet } from "react-router-dom";
+import { useUserContext } from "../../hooks/useUserContext";
+import Loading from "../Loading/Loading";
 
 function PrivateRouter() {
-    const { authenticated, loading} = useAuth();
+  const { authenticated, isLoading } = useUserContext();
 
-    if(loading) {
-        return <p>Carregando...</p>
-    }
+  if (isLoading) {
+    return <Loading />;
+  }
 
-    return authenticated ? <Outlet /> : <Navigate to='/login' replace/>
+  return authenticated ? <Outlet /> : <Navigate to="/login" replace />;
 }
 
 export default PrivateRouter;

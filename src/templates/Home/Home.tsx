@@ -1,33 +1,35 @@
 import { useFetchAnimes } from "../../hooks/useFetchAnimes";
-import { useFetchAnimesByCategory } from "../../hooks/useFetchAnimesByCategory";
 import { categories } from "../../api/categories";
 
 // components
 import AnimeBanner from "../../components/AnimeBanner/AnimeBanner";
 import NavBar from "../../components/NavBar/NavBar";
 import AnimeRow from "../../components/AnimeRow/AnimeRow";
+import Loading from "../../components/Loading/Loading";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import Footer from "../../components/Footer/Footer";
 
 import "./Home.css";
 
 function Home() {
-  const { animes } = useFetchAnimes();
+  const { animes, isLoading, error } = useFetchAnimes();
 
   return (
-    <div>
+    <>
       <NavBar />
-      <AnimeBanner data={animes} />
-      {categories.map((category) => {
-        const { animes } = useFetchAnimesByCategory(category);
+      {isLoading && <Loading />}
+      {error && <ErrorMessage message={error} />}
 
-        return (
-          <AnimeRow
-            key={category.displayName}
-            categoryDisplayName={category.displayName}
-            animes={animes}
-          />
-        );
-      })}
-    </div>
+      {!isLoading && !error && (
+        <>
+          <AnimeBanner animes={animes} />
+          {categories.map((category) => {
+            return <AnimeRow key={category.displayName} category={category} />;
+          })}
+          <Footer />
+        </>
+      )}
+    </>
   );
 }
 

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useUserContext } from "../../hooks/useUserContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { IoMdClose, IoMdMenu } from "react-icons/io";
 import { MdLogout } from "react-icons/md";
@@ -13,6 +13,18 @@ import "./NavBar.css";
 function NavBar() {
   const [menuVisible, setMenuVisible] = useState(false);
   const { logout } = useUserContext();
+
+  useEffect(() => {
+    if (menuVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [menuVisible]);
 
   const handleLogout = () => {
     logout();
@@ -31,9 +43,9 @@ function NavBar() {
         onClick={() => setMenuVisible(!menuVisible)}
       >
         {menuVisible ? (
-          <IoMdClose size={35} color="#a0a0a0" />
+          <IoMdClose size={35} color="#ffffff" />
         ) : (
-          <IoMdMenu size={35} color="#a0a0a0" />
+          <IoMdMenu size={35} color="#ffffff" />
         )}
       </button>
 
@@ -43,18 +55,21 @@ function NavBar() {
             <IoBookmarkOutline size={20} /> Minha Lista
           </span>
         </Link>
+
         <Link to="/search">
           <span>
             <IoIosSearch size={24} />
             Buscar
           </span>
         </Link>
-        <Link to="#">
+
+        <Link to="/profile">
           <span>
             <FaRegUser size={19} />
             Perfil
           </span>
         </Link>
+
         <Link to="/login" onClick={handleLogout}>
           <span>
             <MdLogout size={23} /> Sair

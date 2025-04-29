@@ -1,14 +1,17 @@
-import './Button.css';
+import "./Button.css";
 
 interface ButtonProps {
-    txtButton: string;
-    onClick?: () => void;
+  txtButton: React.ReactNode;
+  disabled?: boolean;
+  onClick?: () => void;
 }
 
-function Button({ txtButton, onClick}: ButtonProps) {
-    return (
-        <button onClick={onClick}>{txtButton}</button>
-    );
+function Button({ txtButton, disabled, onClick }: ButtonProps) {
+  return (
+    <button onClick={onClick} disabled={disabled}>
+      {txtButton}
+    </button>
+  );
 }
 
 export default Button;

@@ -1,6 +1,7 @@
 /* Desktop Styles */
 .search-container {
     width: 100%;
+    height: 100vh;
     margin-top: 62px;
 }
 
@@ -36,6 +37,7 @@
     border: none;
     font-size: 1.3rem;
     line-height: 1.7rem;
+    color: #ffffff;
     padding-bottom: 0.25rem;
     text-rendering: optimizeLegibility;
 }
@@ -106,5 +108,14 @@
     .search-input > input{
         font-size: 1.2rem;
         line-height: 1.6rem;
+    }
+
+    .search-not-found-area {
+        width: 90%;
+    }
+
+    .list-anime-search {
+        width: 90%;
+        justify-content: center;
     }
 }
