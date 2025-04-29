@@ -20,3 +20,5 @@ Aplicação web desenvolvida com React consumindo o meu próprio backend, permit
 - [ContextAPI](https://reactjs.org/docs/context.html)
 - [Vite](https://vitejs.dev/)
 - [CSSModules]()
+- Backend: ** NodeJs + Express + JWT + Multer + Mongoose(MongoDb) **
+
