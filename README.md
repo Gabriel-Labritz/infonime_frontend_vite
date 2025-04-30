@@ -31,6 +31,11 @@ Esse projeto foi desenvolvido com foco em praticar:
 - [CSSModules]()
 - Backend: **Node.js + Express + JWT + MongoDB (Mongoose) + Multer**
 
+## Prints da aplicação 🖼
+
+### Tela de login 🔒
+<img src="public/login.png" width="800" alt="Tela de Login" />
+
 ## Como rodar o projeto localmente ✔
 
 ```bash
