@@ -2,6 +2,15 @@
 
 Aplicação web desenvolvida com React consumindo o meu próprio backend, permitindo aos usuários explorarem animes, visualizarem informações detalhadas, adicionarem/removerem títulos à sua lista de animes pessoal e interagirem com comentários e avaliações.
 
+## Sobre o projeto 🧠
+
+Esse projeto foi desenvolvido com foco em praticar:
+- **Estruturação de componentes reutilizáveis**
+- **Boas práticas com hooks e contextAPI**
+- **Reafatoração e maior legibilidade e clean code**
+- **Tratamentos de erros e loading**
+- **Requisições ao backend**
+
 ## Funcionalidades da aplicação ⚙
 - 🔍 **Busca por animes**
 - 📂 **Visualização de animes por categoria**
