@@ -18,7 +18,7 @@ Esse projeto foi desenvolvido com foco em praticar:
 - 📌 **Adicionar/remover animes da lista pessoal**
 - 🔒 **Sistema de autenticação (login/registro)**
 - ⚙️ **Perfil de usuário editável**
-- 🎨 **Interface responsiva e moderna** 
+- 🎨 **Interface responsiva** 
 
 ## Tecnologias 🛠
 - [React](https://reactjs.org/)
@@ -56,4 +56,8 @@ npm run dev
   VITE_baseUrlImg="http://localhost:5000/public/images/animes/"
 ```
 
+## Autor 🙋‍♂️
+Gabriel Labritz - Dev Júnior
+- [GitHub](https://github.com/Gabriel-Labritz)
+- [LinkedIn](https://www.linkedin.com/in/gabriel-labritz-199499229/)
 
