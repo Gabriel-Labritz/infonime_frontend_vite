@@ -34,7 +34,7 @@ Esse projeto foi desenvolvido com foco em praticar:
 ## Prints da aplicação 🖼
 
 ### Tela de Register 🔒
-<img src="public/prints/register.png" width="800" alt="Tela de Registro" />
+<img src="../public/prints/register.png" width="800" alt="Tela de Registro" />
 
 ## Como rodar o projeto localmente ✔
 
