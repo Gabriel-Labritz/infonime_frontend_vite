@@ -9,7 +9,7 @@ Esse projeto foi desenvolvido com foco em praticar:
 - **Boas práticas com hooks e contextAPI**
 - **Reafatoração e maior legibilidade e clean code**
 - **Tratamentos de erros e loading**
-- **Requisições ao backend**
+- **Integração e requisições ao backend**
 
 ## Funcionalidades da aplicação ⚙
 - 🔍 **Busca por animes**
