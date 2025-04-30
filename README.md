@@ -34,6 +34,7 @@ Esse projeto foi desenvolvido com foco em praticar:
 - [CSSModules]()
 - Backend: **Node.js + Express + JWT + MongoDB (Mongoose) + Multer**
 
+<<<<<<< HEAD
 ## 📸 Prints da Aplicação
 
 ### 🔐 Tela de Registro
@@ -63,6 +64,12 @@ Esse projeto foi desenvolvido com foco em praticar:
 ### Mobile
 
 ![Mobile](./prints/Mobile.PNG)
+=======
+## Prints da aplicação 🖼
+
+### Tela de Register 🔒
+<img src="../public/prints/register.png" width="800" alt="Tela de Registro" />
+>>>>>>> 94ade58859f631228894f4a1384a65738cc17bc1
 
 ## Como rodar o projeto localmente ✔
 
