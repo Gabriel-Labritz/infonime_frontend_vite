@@ -1,10 +1,11 @@
-# InfoNime 🎬 #
+# InfoNime 🎬
 
 Aplicação web desenvolvida com React consumindo o meu próprio backend, permitindo aos usuários explorarem animes, visualizarem informações detalhadas, adicionarem/removerem títulos à sua lista de animes pessoal e interagirem com comentários e avaliações.
 
 ## Sobre o projeto 🧠
 
 Esse projeto foi desenvolvido com foco em praticar:
+
 - **Estruturação de componentes reutilizáveis**
 - **Boas práticas com hooks e contextAPI**
 - **Reafatoração e maior legibilidade e clean code**
@@ -12,15 +13,17 @@ Esse projeto foi desenvolvido com foco em praticar:
 - **Integração e requisições ao backend**
 
 ## Funcionalidades da aplicação ⚙
+
 - 🔍 **Busca por animes**
 - 📂 **Visualização de animes por categoria**
 - ⭐ **Avaliação e comentários**
 - 📌 **Adicionar/remover animes da lista pessoal**
 - 🔒 **Sistema de autenticação (login/registro)**
 - ⚙️ **Perfil de usuário editável**
-- 🎨 **Interface responsiva** 
+- 🎨 **Interface responsiva**
 
 ## Tecnologias 🛠
+
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [ReactRouterDOM](https://reactrouter.com/)
@@ -30,6 +33,36 @@ Esse projeto foi desenvolvido com foco em praticar:
 - [Vite](https://vitejs.dev/)
 - [CSSModules]()
 - Backend: **Node.js + Express + JWT + MongoDB (Mongoose) + Multer**
+
+## 📸 Prints da Aplicação
+
+### 🔐 Tela de Registro
+
+![Register](./prints/register.PNG)
+
+### 🏠 Tela da Home
+
+![Home Page](./prints/Home.PNG)
+
+### 📄 Tela do Anime
+
+![Anime Page](./prints/Anime.PNG)
+
+### 📋 Tela MyList
+
+![MyListPage](./prints/MyList.PNG)
+
+### 🔍 Tela de Busca
+
+![SearchPage](./prints/Search.PNG)
+
+### ⚙ Tela Perfil
+
+![ProfilePage](./prints/Profile.PNG)
+
+### Mobile
+
+![Mobile](./prints/Mobile.PNG)
 
 ## Como rodar o projeto localmente ✔
 
@@ -57,7 +90,8 @@ npm run dev
 ```
 
 ## Autor 🙋‍♂️
+
 Gabriel Labritz - Dev Júnior
+
 - [GitHub](https://github.com/Gabriel-Labritz)
 - [LinkedIn](https://www.linkedin.com/in/gabriel-labritz-199499229/)
-
