@@ -10,7 +10,7 @@
     height: 62px;
     padding: 0px 30px;
     background-color: #1B1B1F;
-    z-index: 999;
+    z-index: 1000;
 }
 
 .nav-logo-area {
@@ -103,7 +103,7 @@
         flex-direction: column;
         gap: 30px;
         position: fixed;
-        top: 62px;
+        top: 60px;
         left: 0;
         right: 0;
         width: 100%;

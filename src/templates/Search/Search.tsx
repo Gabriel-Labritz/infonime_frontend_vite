@@ -5,7 +5,6 @@ import { useAnimeSearch } from "../../hooks/useAnimeSearch";
 import NavBar from "../../components/NavBar/NavBar";
 import { AnimeCardSearch } from "../../components/AnimeCardSearch/AnimeCardSearch";
 import Loading from "../../components/Loading/Loading";
-import Footer from "../../components/Footer/Footer";
 
 import "./Search.css";
 
@@ -70,7 +69,6 @@ function Search() {
           )
         )}
       </div>
-      <Footer />
     </>
   );
 }

@@ -4,6 +4,7 @@
     color: #ffffff;
     text-align: center;
     background: #000000 linear-gradient(180deg, #0000, #1B1B1F);
+    border: 1px solid red;
 }
 
 .footer-container a {

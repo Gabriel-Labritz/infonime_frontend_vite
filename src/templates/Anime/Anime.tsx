@@ -40,14 +40,9 @@ function Anime() {
   const handleListAction = async () => {
     if (!anime) return;
 
-    if (isInList) {
-      await removeFromList(anime._id);
-    } else {
-      await addToList(anime._id, anime);
-    }
-
-    // ⚠️ Aguarde o setAnimeList atualizar antes de refazer a lista
-    await fetchAnimeList();
+    isInList
+      ? await removeFromList(anime._id)
+      : await addToList(anime._id, anime);
   };
 
   return (
