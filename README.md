@@ -39,5 +39,7 @@ npm run dev
 
 ```
 
-## Variáveis de ambiente
+## Variáveis de ambiente 🛠
+## Crie um arquivo .env na raiz do projeto com:
+
 
