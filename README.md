@@ -2,6 +2,9 @@
 
 Aplicação web desenvolvida com React consumindo o meu próprio backend, permitindo aos usuários explorarem animes, visualizarem informações detalhadas, adicionarem/removerem títulos à sua lista de animes pessoal e interagirem com comentários e avaliações.
 
+## Acesse o projeto 💻
+https://infonime-frontend-2pjmg8k52-gabriellabritzs-projects.vercel.app/
+
 ## Sobre o projeto 🧠
 
 Esse projeto foi desenvolvido com foco em praticar:
