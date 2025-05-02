@@ -7,7 +7,7 @@ import AnimeCard from "../AnimeCard/AnimeCard";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Loading from "../Loading/Loading";
 
-import "./Animerow.css";
+import "./AnimeRow.css";
 
 interface AnimeRowProps {
   category: CategoriesInterface;
