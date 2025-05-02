@@ -37,36 +37,6 @@ Esse projeto foi desenvolvido com foco em praticar:
 - [CSSModules]()
 - Backend: **Node.js + Express + JWT + MongoDB (Mongoose) + Multer**
 
-## 📸 Prints da Aplicação
-
-### 🔐 Tela de Registro
-
-![Register](./prints/register.PNG)
-
-### 🏠 Tela da Home
-
-![Home Page](./prints/Home.PNG)
-
-### 📄 Tela do Anime
-
-![Anime Page](./prints/Anime.PNG)
-
-### 📋 Tela MyList
-
-![MyListPage](./prints/MyList.PNG)
-
-### 🔍 Tela de Busca
-
-![SearchPage](./prints/Search.PNG)
-
-### ⚙ Tela Perfil
-
-![ProfilePage](./prints/Profile.PNG)
-
-### Mobile
-
-![Mobile](./prints/Mobile.PNG)
-
 ## Como rodar o projeto localmente ✔
 
 ```bash
