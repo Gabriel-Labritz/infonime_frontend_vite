@@ -88,8 +88,8 @@ npm run dev
 
 ```bash
   ### Crie um arquivo .env na raiz do projeto com:
-  VITE_baseUrlApi="http://localhost:5000"
-  VITE_baseUrlImg="http://localhost:5000/public/images/animes/"
+  VITE_baseUrlApi=https://infonime-backend.onrender.com
+  VITE_baseUrlImg=https://infonime-backend.onrender.com/public/images/animes/
 ```
 
 ## Autor 🙋‍♂️
