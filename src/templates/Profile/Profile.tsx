@@ -53,7 +53,7 @@ function Profile() {
   return (
     <>
       <NavBar />
-      {isLoading || (loading && <Loading />)}
+      {isLoading && <Loading />}
       {error && <ErrorMessage message={error} />}
 
       <div className="profile-container">
